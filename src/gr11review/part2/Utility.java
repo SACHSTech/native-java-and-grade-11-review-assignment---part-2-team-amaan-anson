@@ -70,4 +70,41 @@ public class Utility {
         
         return (counter == inner.length);
     }
+
+       public static void pascalTri(int i, int j) throws IOException {
+
+        int[][] pascal = new int[i][j];
+
+        //setting up file
+        File pascalOutfile = new File ("pascalOut.txt");
+        PrintWriter writer = new PrintWriter("src/gr11review/part2/pascalOut.txt");
+        pascalOutfile.createNewFile();
+
+        //first column and row of pascal triangle is 1
+        for (int rowNumber = 0; rowNumber < i; rowNumber++) {
+            for (int columnNumber = 0; columnNumber < j; columnNumber++) {
+
+                if(columnNumber == 0 || rowNumber == 0){
+                    pascal[columnNumber][0] = 1;
+                    pascal[rowNumber][0] = 1;
+                }else{
+                    pascal[rowNumber][columnNumber] = pascal[rowNumber - 1][columnNumber] + pascal[rowNumber][columnNumber - 1];
+                }
+
+            }
+        }
+            //filling file
+        for (int rowNumber = 0; rowNumber < i; rowNumber++) {
+            for (int columnNumber = 0; columnNumber < j; columnNumber++) {
+                writer.print(pascal[rowNumber][columnNumber] + ", ");
+                if(columnNumber == j - 1) {
+                    writer.println(" ");
+                }
+            }
+        }
+        writer.close();
+    }
+
 }
+
+
