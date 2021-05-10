@@ -50,5 +50,24 @@ public class Utility {
         return nums;
 
     }
+
+  //Array 3
+    //Completed by Amaan
+    public static boolean linearIn(int[] outer, int[] inner) {
+        //initialize variables
+        int j = 0;
+        int i = 0;
+        int counter = 0;
+        while(i < outer.length && j < inner.length){ 
+            if(outer[i] == inner[j]) {
+                counter++;
+                i++;
+                j++;
+            } else {
+                i++;
+            }
+        }
+        
+        return (counter == inner.length);
+    }
 }
-    
