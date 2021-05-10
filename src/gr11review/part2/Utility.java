@@ -32,4 +32,23 @@ public class Utility {
 
         return wordLongest;
     }
+
+      public static int[] tenRun(int[] nums){
+        // 2,10,3,20,2 ---> 2, 10, 10, 20, 2
+
+        for(int i = 0; i< nums.length - 1; i++){
+            //checking if the number is a multiple of 10
+            if (nums[i] % 10 == 0) {
+                //checking if the next element is not a multiple of 10
+                if (nums[i+1] % 10 != 0) {
+                    //if this is true, we set the next element to nums[i]
+                    nums[i+1] = nums[i];
+                }
+            }
+
+    }
+        return nums;
+
+    }
+}
     
